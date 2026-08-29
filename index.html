@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Ruman - Cybersikkerhetstudent</title>
+    <!-- Dag 2 : Style.css kobles til her -->
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+
+    <!----------------------------
+    Navbar
+    - Logo til venstre 
+    - Navigasjonslenker til høyre
+    - href peker på seksjon ID-er lenger ned 
+
+    ------------------------------>
+
+    <nav>
+        <a href="#hero"> ~/ruman</a>
+
+        <ul>
+            <li> <a href="#om_meg"> om_meg</a></li>
+            <li> <a href="#ferdigheter"> ferdigheter</a></li>
+            <!--<li> <a href="#sertifikater"> sertifikater</a></li> -->
+            <li> <a href="#prosjekter"> prosjekter</a></li>
+            <li> <a href="#kontakt"> kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-------------------------------------
+    HERO
+    - Første ting besøkende ser
+    - Terminal-prompt, navn, rolle, beskrivelse
+    - knapper som scroller ned til seksjoner
+    
+    --------------------------------------->
+
+    <section id="hero"> 
+
+        <!-- Terminal-prompt - dag 4: Javascript fyller inn animasjon her--->
+
+        <div class="hero-prompt">
+            <span>root@portfolio:~$ </span>
+            <span id="typed">whoami</span>
+        </div>
+
+        <h1> Hei, jeg er <span class="accent"> Ruman</span></h1>
+
+        <p class="hero-rolle">// Cybersikkerhetsstudent. 2.år</p>
+
+        <p class="hero-beskrivelse">
+            Jeg studerer cybersikkerhet med fokus på nettverksikkerhet, etisk hacking og forsvar av systemer. 
+            Jeg er nysgjerrig av natur og alltid på jakt etter å forstå hvordan ting fungerer - og hvordan de kan brytes.
+        </p>
+
+        <!--Tags / nøkkelord -->
+        <ul class="hero-tags">
+            <li> Penetration Testing </li>
+            <li> Cloud Security</li>
+            <li> CTF player </li>
+            <li> Linux </li>
+            <li> Homelab</li>
+        </ul>
+
+        <!--- Handlingsknapper --->
+
+        <div class="hero-knapper">
+
+            <a href="#prosjekter" class="knapp knapp-solid"> Se prosjekter</a>
+            <a href="#kontakt" class="knapp"> Ta kontakt</a>
+
+        </div>
+
+        <div class="scroll-hint"> scroll</div>
+
+        
+
+
+
+    </section>
+
+
+
+    <!----------------------------------------------
+    
+    OM MEG
+
+    - Kort personlig tekst
+    - Statistikkbokser (Studieår. CTF, teknologier)
+    
+    
+    ------------------------------------------------->
+
+    <section id="om-meg">
+
+        <p class="seksjon-label"> // om-meg</p>
+
+     <div class="om-meg-grid"> 
+
+
+        <div class="om-meg-bilde">
+            <img src="bilde.jpg" alt="Ruman" />
+        </div>
+
+
+
+      <div class="om-meg-høyre"> 
+        <div class="om-meg-tekst"> 
+
+            <p>
+                Jeg er en <strong> Cybersikkerhetsstudent på 2.år </strong> med en genuin 
+                interresse for alt som handler om digital sikkerhet. 
+                
+            </p>
+            
+            <p>
+                På studiet har jeg tilegnet meg kunnskap innen webutvikling, databaser 
+               og operativsystemer, og bruker fritiden til å fordype meg i 
+               sikkerhetsfaget gjennom CTF-konkurranser og egenstudier
+                
+            </p>
+
+            <p>
+                Jeg er på utkikk etter <strong>praksisplass </strong> 
+                der jeg kan bidra og lære av erfarne fagfolk.
+            </p>
+
+
+
+        </div>
+    
+
+
+
+        <!--Statistikkbokser-->
+        <div class ="om-meg-stats">
+
+            <div class="stat-kort">
+
+             <span class="stat-tall"> 2.</span>
+              <span class="stat-tekst"> Studieår</span>
+
+            </div>
+        
+
+            <div class="stat-kort">
+
+                <span class="stat-tall"> CTF </span>
+                <span class="stat-tekst"> aktiv deltaker</span>
+
+            </div>
+
+            <div class="stat-kort">
+                <span class="stat-tall"> 6+</span>
+                <span class="stat-tekst"> Teknologier</span>
+        
+
+            </div>
+
+           <div class="stat-kort">
+               <span class="stat-tall"> Open</span>
+               <span class="stat-tekst"> For praksis</span>
+
+            </div>
+
+
+
+        </div>
+      </div>
+
+     </div>
+
+
+
+    </section>
+
+    <!------------------------------------
+
+    FERDIGHETER 
+    - Ett kort per ferdighet 
+    - Data -prosent brukes i uke 4 av JavaScript 
+    til å animere skill-barene
+    
+    -------------------------------------->
+
+    <section id="ferdigheter">
+
+        <p class="seksjon-label"> // ferdigheter</p>
+
+      <div>
+        
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> HTML &amp; CSS</span>
+                <span class="ferdighet-prossent"> 85% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="85"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> Webutvikling</span>
+
+        </div>
+
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> JavaScript</span>
+                <span class="ferdighet-prossent"> 75% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="75"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> Frontend/ Scripting</span>
+
+        </div>
+
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> Java</span>
+                <span class="ferdighet-prossent"> 70% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="70"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> Backende/ OOP</span>
+
+        </div>
+
+
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> Database/ SQL</span>
+                <span class="ferdighet-prossent"> 72% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="72"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> Data &amp; Lagring </span>
+
+        </div>
+
+
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> Linux</span>
+                <span class="ferdighet-prossent"> 80% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="80"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> OS / Shell</span>
+
+        </div>
+
+
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> Nmap / Wireshark </span>
+                <span class="ferdighet-prossent"> 60% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="60"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> Nettverkanalyse</span>
+
+        </div>
+
+        <div class="ferdighet-kort">
+
+            <div class="ferdighet-topp">
+                <span class="ferdighet-navn"> Git</span>
+                <span class="ferdighet-prossent"> 75% </span>
+
+            </div>
+
+            <div class="ferdighet-bar">
+                <span class="ferdighet-fyll" data-prosent="75"> </span>
+            </div>
+
+            <span class="ferdighet-kategori"> Versjonskontroll</span>
+
+        </div>
+
+
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+    <!----------------------------------------
+
+    PROSJEKTER 
+    - Ett ekte prosjekt (portføljen)
+    - Resten er plassholdere- fyll inn etterhvert
+    ------------------------------------------->
+
+    <section id="prosjekter">
+        <p class="seksjon-label"> // prosjekter </p>
+
+        <div class="prosjekt-grid">
+            <!---Ekte prosjekt---->
+            <article class="prosjekt-kort">
+                <div class="prosjekt-topp">
+                    <span class="prosjekt-navn"> portfolio-nettside </span>
+                    <a href="#" class="prosjekt-lenke"> GitHub ↗</a>
+                </div>
+
+                <p class="prosjekt-beskrivelse">
+                    personlige portføljenettside bygget med HTML, CSS, og JavaScript. 
+                    Designet for å vise frem ferdigheter og prosjekter på en ren og teknisk måte.
+
+                </p>
+                <ul class="prosjekt-tags">
+                    <li> HTML </li>
+                    <li> CSS</li>
+                    <li> JavaScript</li>
+                </ul>
+
+            </article>
+
+            <!-- plassholder 2-bytt ut med ekte prosjekt-->
+             <article class="prosjekt-kort prosjekt-placeholder">
+                <p> prosjekt kommer snart</p>
+             </article>
+
+
+
+           <!-- plassholder 3-bytt ut med ekte prosjekt-->
+             <article class="prosjekt-kort prosjekt-placeholder">
+                <p> prosjekt kommer snart</p>
+             </article>
+             
+
+          <!-- plassholder 4-bytt ut med ekte prosjekt-->
+             <article class="prosjekt-kort prosjekt-placeholder">
+                <p> prosjekt kommer snart</p>
+             </article>
+             
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <!---------------------------
+    SERTIFIKATER
+    - Class = "planglagt" / "under-arbeid" / "oppnadd"
+     bruk dag 2 og 3 til å fargekode stripe og badge
+    --------------------------
+
+
+    <section id="sertifikater">
+
+        <p class="seksjon-label"> // Sertifikater </p>
+
+        <div class="sertifikater-grid">
+
+            <div class="sertifikat-kort planglagt">
+                <span class="sertikat-ikon"> 🛡️</span>
+                <span class="sertifikat-utgiver"> CompTIA</span>
+                <h3 class="sertifikat-navn"> Security+</h3>
+                <span class="sertifikat-status"> Planlagt</span>
+                <span class="sertifikat-aar"> Mål: 2025</span>
+            </div>
+
+            <div class="sertifikat-kort planglagt">
+                <span class="sertikat-ikon"> 🛡️</span>
+                <span class="sertifikat-utgiver"> CompTIA</span>
+                <h3 class="sertifikat-navn"> Security+</h3>
+                <span class="sertifikat-status"> Planlagt</span>
+                <span class="sertifikat-aar"> Mål: 2027</span>
+            </div>
+
+            <div class="sertifikat-kort planglagt">
+                <span class="sertikat-ikon"> 🛡️</span>
+                <span class="sertifikat-utgiver"> CompTIA</span>
+                <h3 class="sertifikat-navn"> Security+</h3>
+                <span class="sertifikat-status"> Planlagt</span>
+                <span class="sertifikat-aar"> Mål: 2025</span>
+            </div>
+
+        </div>
+
+    </section>
+      ---------------------------->
+
+
+    <!------------------------------------------
+
+    KONTAKT
+    -Kontaktlenker ( epost, Github, LikedIn)
+    - Kontakskjema 
+    ----------------------------------------->
+
+    <section id="kontakt">
+
+        <p class="seksjon-label"> // Kontakt</p>
+
+        <div class="kontakt-grid">
+            <!-------Kontaktlenker-->
+
+            <div class="kontakt-info">
+                <div class="kontakt-intro"> 
+                    <p class=" kontakt-intro">
+                        Jeg er alltid åpen for gode samtaler -enten det gjelder samarbeid, 
+                        praksis plass, CTF-tips eller bare sikkerhetsprat.
+                    </p>
+
+                    <div class="kontakt-lenker">
+
+                        <!--------- EPOST ----------->
+
+                        <a href="rumandahir18@gmail.com" class="kontakt-lenke"> 
+                            <span class="kontakt-ikon"> 📧 </span>
+
+                            <div>
+                                <span class="kontakt-lenke-tittel"> Epost</span>
+                                <!--- Eposten min-->
+
+                                 <span class="kontakt-lenke-sub"> rumandahir18@gmail.com</span>
+                            </div>
+                        
+
+                        </a>
+
+
+                        <!------ GITHUB profilen----------->
+
+                        <a href="https://github.com/" target="_blank" rel="noopener" class="kontakt-lenke">
+
+                            <span class="kontakt-ikon"> gh </span>
+
+                            <div>
+
+                                <span class="kontakt-lenke-tittel"> Github</span>
+
+                                <!------- Legg inn Github-URL-->
+
+                                <span class="kontakt-lenke-sub"> github.com/ruman </span>
+
+                            </div>
+
+
+                        </a>
+
+
+                        <!------------------linkedIN profilen----------->
+
+
+                        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="kontakt-lenke">
+
+                            <span class="kontakt-ikon"> in</span>
+
+                            <div>
+                                <span class="kontakt-lenke-tittel"> LinkedIN</span>
+
+                                <!----- Legg inn profil URL-en  her----->
+
+                                <span class="kontakt-lenke-sub"> linkedin.com/in/rumansudi</span>
+
+                            </div>
+
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+                <!-----------
+                Kontaktskjema kan legges her senere om behov. 
+                
+                --------------------->
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+    <!-----------------------
+    FOOTER
+    ------------------------->
+
+    <footer>
+
+        <p> Bygget av Ruman <span id="aar"></span> .  Cybersikkerhetsstudent</p>
+    </footer>
+
+    <!-----------  
+    Js. kobles til her
+    ------------>
+
+    <script src="script.js"></script>
+
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
+
+</body>
+</html>

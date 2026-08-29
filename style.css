@@ -1,0 +1,861 @@
+
+/*---------------------------------------------
+
+Ruman - PORTFOLIO STYLESHEET
+
+Dag 2: Grunnstiler, variabler, reset, navbar, hero
+Dag 3: Seksjoner (om meg, ferdigheter, osv.)
+
+----------------------------------- */
+
+/*---------------------------------------------
+1. CSS-variabler
+Alle farger og fonter samlet på ett sted.
+----------------------------------- */
+
+
+
+
+:root {
+    /* Farger*/
+
+    --bg:       #0A0E1A;     /* Bakgrunnsfarge -mørk blå svart*/
+    --cyan:     #00d4ff;     /* Hovedaksent-elektrisk blå/cyant*/
+    --green:    #1AFF8A;     /* Sekundæraksent- terminal grønn */
+    --tekst:    #E8EDF5;     /* Hovedtekst - nesten hvit */
+    --dempet:   rgba(232, 237, 245, 0.52); /* Myk tekst, undertekst */
+    --svak:     rgba(232, 237, 245,0.28); /* Veldig svak-labels */
+    --kort:     rgba(255, 255, 255,0.03); /* Kortbakgrunn */
+    --kort:     rgba(255, 255, 255,0.08); /* Kantlinjer på kort */
+    
+    
+    /* Fonter*/
+
+    --mono:          'JetBrains Mono', monospace;    /* Teknisk/kode-utseende */
+    --Sans:          'Inter', sans-serif;            /* Lesbar brødtekst */
+}
+
+/*------------------------------
+ 2. Google fonts import 
+
+-----------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family = Inter:wgh@400; 500&display=swap');
+
+/*------------------------------
+
+3. Reset 
+
+----------------------------*/
+
+*,
+
+*::before, 
+*::after {
+    box-sizing: border-box; /* padding og border trekkes fra bredden, ikke lagt til */
+    margin: 0; 
+    padding: 0; 
+}
+
+/*-------------------------------
+  4. Grunnstiler - Body og HTML
+-------------------------*/
+
+html{
+    scroll-behavior:smooth; /* Myk scrolling når man klikker navbar-lenker*/
+
+}
+
+body{
+    background-color: var(--bg);
+    color: var(--tekst);
+    font-family: var(--sans);
+    font-size: 16px; 
+    line-height:1.6;
+    overflow-x:hidden; /* Ingen horisantal crollbar*/
+}
+
+/* Fjern understrek på alle lenkerr som standard */
+
+a{
+    color: inhert; 
+    text-decoration: none;
+}
+
+/* Bilder skal aldri gå utenfor sin container*/
+img{
+    max-width: 100%;
+    display: block;
+
+}
+
+/* Lister uten kulepunkter som standard*/
+
+ul{
+    list-style: none;
+}
+
+/*------------------------------------
+
+5. Gjenbrukbare hjelpeklasser
+--------------------------------*/
+
+/* Seksjonslabel -Liten tekst over titler, f.eks. "// om_meg" */
+
+.seksjon-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--svak);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 40px;  
+
+}
+
+
+/* Knapper */
+
+.knapp{
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 12px;
+    padding: 11px 24px;
+    border-radius: 4px;
+    border: 0.5px solid rgba(0, 212, 255, 0.5);
+    color: var(--cyan);
+    background: rgba(0, 212, 255, 0.06);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, border-color 0.2s;
+
+} 
+
+.knapp:hover{
+    background: rgba(0, 212, 255, 0.13);
+    border-color: var(--cyan);
+}
+
+/*Fyly knapp-brukes til primær handling*/
+
+.knapp-solid{
+    background: var(--cyan);
+    color: #0A0E1A;
+    border-color: var(--cyan);
+    font-weight: 700;
+}
+.knapp-solid:hover{
+    background: #2adeff;
+    background-color: #2adeff;
+}
+
+/*Seksjoner - maks bredde og luft på sidene*/
+
+section{
+    padding: 88px 48px;
+    max-width: 1100px;
+    margin: 0 auto; 
+}
+/*wrapper rundt seksjoner-den tynne linjen mellom dem*/
+
+.seksjon-wrapper{
+    border-bottom: 0.5px solid rgba(255, 255, 255,0.05)
+
+}
+
+/*------------------------------------
+6. NAVBAR.  
+------------------------------------*/
+
+nav{
+    position: sticky;  /* Henger øverst når du scroller */
+    top: 0;
+    z-index: 100;     /* Alltid over al annet innhold */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 48px;
+    height: 56px;
+    background: rgba (10, 14, 26, 0.88);
+    backdrop-filter: blur(16px); /* Frosted glass-effekt */
+    border-bottom: 0.5px solid rgba(0, 212, 255, 0.15);
+
+}
+
+/* Logo */
+
+nav > a{ 
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--cyan);
+    letter-spacing: 0.05em;
+}
+
+/* Nav-lenkerlisten */
+
+nav ul{
+    display:flex;
+    gap: 32px; 
+}
+
+nav ul a {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--dempet);
+    letter-spacing: 0.05em;
+    transition: color 0.2s ;
+    padding: 4px 0; 
+    border-bottom: 1px solid transparent;  /* Klar for aktiv styling*/
+}
+
+nav ul a:hover {
+    color: var(--tekst);
+
+}
+
+/* Aktiv lenke -JS legges til denne klassen når du skroller */
+
+nav ul a.aktiv {
+    color: var(--cyan);
+    border-bottom: var(--cyan);
+}
+
+/* Hamburger -meny -skjult på dekstop, synlig på mobil */
+
+.nav-toggle{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer; 
+    padding: 4px;
+    background: none;
+    border: none; 
+}
+
+.nav-toggle span{
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer; 
+    padding: 4px;
+    background: none;
+    border: none;
+
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--dempet);
+    transition: 0.3s;
+}
+
+/* --------- 
+7. HERO 
+-----*/
+
+#hero{
+    min-height: 92hv;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+/* Terminal -propmt over navn*/
+
+.hero-prompt {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--green);
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+    display:flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+/* Blinkende cursor etter terminal-teksten */
+
+.hero-prompt::after {
+    content: '' ;
+    display: inline-block;
+    width: 9px;
+    height: 16px;
+    background: var(--green);
+    vertical-align: -3px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink{
+    0%, 100% { opacity: 1;}
+    50% {opacity: 0;}
+}
+/* Hovedoverskrift */
+
+
+#hero h1 {
+    font-family: var(--mono);
+    font-size: clamp(38px, 6vw, 62px); /*Skalerer med skjermestørrelse */
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+/* Cyan-farge på  navnet */
+
+#hero h1.accent {
+    color: var(--cyan);
+}
+
+/* "//Cybersikkerhetsstudent .....*/
+
+.hero-rolle {
+    font-family: var(--mono);
+    font-size: clamp(13px, 2VW, 17px); 
+    color: var(--dempet);
+    letter-spacing: 0.02em;
+    margin-bottom: 24px; 
+}
+
+/* Beskrivelsestekst */
+
+.hero-beskrivelse {
+    font-size: 16px;
+    color: var(--dempet);
+    max-width: 520px;
+    line-height: 1.8;
+    margin-bottom: 36px;
+}
+
+/* Tags-rad*/
+
+.hero-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Brytes til ny linje på smal skjerm */
+    margin-bottom: 44px;
+
+}
+
+.hero-tags li {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 6px 14px;
+    border: 0.5px solid rgba(0, 212, 255, 0.35);
+    border-radius: 4px;
+    color: var(--cyan);
+    background: rgba(0, 212, 255, 0.06);
+    letter-spacing: 0.04em;
+
+}
+
+/* knapprad */
+.hero-knapper {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/*pil ne dsom animerer */
+
+.scroll-hint {
+    position: relative;
+    bottom: 32px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--svak);
+    letter-spacing: 0.08em;
+    display:flex;
+    align-items: center;
+    gap: 8px;
+    animation: flytt-ned 2.4s ease-in-out infinite;
+}
+.scroll-hint::after{
+    content: '';
+    display: block;
+    width: 1px;
+    height: 18px;
+    background: var(--svak);
+}
+
+@keyframes flytt-ned{
+    0%, 100% {transform: translateY(0); }
+    50% {transform: translateY(6px);}
+}
+
+
+ /*--------------------------------------
+ 8. OM MEG
+ ------------------------------------*/
+
+ .om-meg-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start; 
+ }
+/*---------- Bilde-------------------*/
+.om-meg-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.om-meg-bilde img {
+  width: 100%;
+  aspect-ratio: 1 / 1;    /* perfekt firkant */
+  object-fit: cover;       /* fyller rammen uten å strekke */
+  border-radius: 12px;
+  border: 0.5px solid var(--kant);
+  filter: grayscale(20%);  /* litt kul effekt */
+}
+
+.om-meg-høyre {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+ .om-meg-tekst p {
+    font-size: 15px; 
+    color: var(--dempet);
+    line-height: 1.85;
+    margin-bottom: 16px;
+
+ }
+
+ .om-meg-tekst p:last-child {
+    margin-bottom: 0;
+ }
+
+
+
+ .om-meg-tekst strong{
+   
+    color: var(--green);
+    font-weight: 500;
+ }
+
+ /* 2x2 grid med statistikkbokser */
+
+ .om-meg-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px; 
+
+ }
+
+ .stat-kort{
+    background: var(--kort);
+    border: 0.5px solid var(--kant);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+ }
+
+ .stat-tall{
+    font-family: var(--mono);
+    font-size: 30px;
+    font-weight:  700;
+    color: var(--cyan);
+    line-height: 1;
+
+ }
+
+ /* Annenhver stat er grønn */
+ .stat-kort:nth-child(even) .stat-tall {
+    color: var(--green);
+ }
+ .stat-tekst {
+    font-size: 12px;
+    color: var(--svak);
+ }
+
+ /*------------------------------------------------
+ 9. FERDIGHETER
+ --------------------------------------------------*/
+
+
+ #ferdigheter > div{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+ }
+
+ .ferdighet-kort{
+    background: var(--kort);
+    border: 0.5px solid var(--kant);
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: border-color 0.2s;
+
+ }
+ .ferdighet-kort:hover{
+    border-color: rgba(0, 212, 255, 0.25);
+ }
+.ferdighet-topp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+.ferdighet-navn{
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--tekst);
+}
+.ferdighet-prossent{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--svak);
+}
+
+/*Grå bakgrunnsbaren*/
+.ferdighet-bar{
+    height: 2px;
+    background: rgba(0, 212, 255, 0.07);
+    border-radius: 1px;
+    overflow: hidden;
+
+}
+
+
+/* Den fargede fyllbaren -JS setter bredden via data-prosent*/
+.ferdighet-fyll{
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--cyan);
+    border-radius: 1px;
+    transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Annenhver  kort ferdighet er grønn */
+.ferdighet-kort:nth-child(even) .ferdighet-fyll{
+    background: var(--green);
+
+}
+
+.ferdighet-kategori{
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--svak);
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+
+/*-------------------------------------------------
+10.prosjekter
+--------------------------------------------------*/
+
+.prosjekt-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.prosjekt-kort{
+    background: var(--kort);
+    border: 0.5px solid var(--kant);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.prosjekt-kort:hover{
+    border-color: rgba(0, 212, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/*Tynn farget linje øverst*/
+
+.prosjekt-kort::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--cyan);
+}
+
+.prosjekt-kort:nth-child(even)::before{
+    background: var(--green);
+}
+
+.prosjekt-topp{
+    display: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.prosjekt-navn{
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--tekst);
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.prosjekt-lenke{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--cyan);
+    border: 0.5px solid rgba(0, 212, 255, 0.3);
+    border-radius: 3px;
+    padding: 3px 9px;
+    transition: background 0.2s;
+}
+
+.prosjekt-lenke:hover{
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.prosjekt-beskrivelse{
+    font-size: 13px;
+    color: var(--dempet);
+    line-height: 1.65;
+    flex-grow: 1; /* Tar opp all ledig plass i kortet */
+    margin-bottom: 18px;
+}
+
+.prosjekt-tags{
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.prosjekt-tag li{
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 3px;
+    background: rgba(0, 212, 255, 0.06);
+    letter-spacing: 0.04em;
+    color: var(--green);
+}
+/*plassholder-kort for prosjekter som ikke er ferdige enda*/
+.prosjekt-placeholder{
+    border-style: dashed;
+    border-color: rgba(0, 212, 255, 0.05);
+    min-height: 160px;
+    justify-content: center;
+    align-items: center;
+    cursor:default
+
+}
+
+.prosjekt-placeholder p{
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--svak);
+    text-align: center;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+}
+.prosjekt-placeholder::before{
+    display: none;
+}
+
+.prosjekt-placeholder:hover{
+    border-color: rgba(0, 212, 255, 0.15);
+    transform: none
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------------------------------
+11.Sertifikater
+--------------------------------------------------*/
+
+
+
+
+
+
+
+
+/*-------------------------------------------------
+12.KONTAKT
+--------------------------------------------------*/
+
+.kontakt-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: start; 
+}
+.kontakt-intro{
+    font-size: 15px;
+    color: var(--dempet);
+    line-height: 1.8;
+    margin-bottom: 32px;
+}
+
+.kontakt-lenker{
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+
+}
+
+.kontakt-lenke{
+    display: flex;
+    background: var(--kort);
+
+    align-items: center;
+    gap: 16px;
+    border: 0.5px solid var(--kant);
+    border-radius: 8px;
+    padding: 16px 20px;
+    transition: border-color 0.2sbackground 0.2s;
+
+}
+
+.kontakt-lenke:hover{
+    border-color: rgba(0, 212, 255, 0.25);
+    background: rgba(0, 212, 255, 0.03);
+}
+
+.kontakt-ikon{
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--cyan);
+    width: 36px;
+    border-radius: 6px;
+    background: rgba(0, 212, 255, 0.8);
+    border: 0.5px solid rgba(0, 212, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kontakt-linke-tittel{
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--tekst);
+}
+.kontakt-lenke-sub{
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--dempet);
+    margin-top: 2px;
+}
+
+/*--------------------------------------
+ 13. FOOTER
+-------------------------------------*/
+
+footer{
+    padding: 28px 48px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--svak);
+    letter-spacing: 0.06em;
+    border-top: 0.5px solid rgba(255, 255, 255,0.05);
+
+}
+
+footer span{
+    color: var(--cyan);
+}
+
+/*--------------------------------------
+ 14. RESPONSIVE DESIGN - Mobil
+-------------------------------------*/
+
+@media( max-width: 860px){
+
+    nav{
+        padding: 0 20px;
+    }
+
+    nav ul{
+        display: none; /* Skjul nav-lenker på mobil */
+        flex-direction: column;
+        position: absolute;
+        top: 56px;
+        right: 0;
+        left: 0;
+        background: rgba(10, 14, 26, 0.97);
+        border-bottom: 0.5px solid rgba(0, 212, 255, 0.15);
+        padding: 12px 20px;
+
+    }
+
+    nav ul a{
+       display: block;
+        padding: 12px 28px;
+
+    }
+
+    section{
+        padding: 64px 28px;
+    }
+    #hero{
+        padding-left: 20px;
+        padding-right: 20px;
+        min-height: 80vh;
+
+    }
+    .om-meg-grid, 
+    .kontakt-grid,{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .sertifikater-grid{
+        grid-template-columns:(2, 1fr); 
+    }
+    .prosjekt-grid{
+        grid-template-columns: 1fr;
+    }
+    footer{
+        padding: 24px 20px;
+    }
+
+}
+
+@media (max-width: 520px){
+    .sertifikater-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
