@@ -816,6 +816,23 @@ footer span{
 
     }
 
+     .om-meg-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .om-meg-bilde img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .om-meg-stats {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
     nav ul a{
        display: block;
         padding: 12px 28px;
@@ -853,9 +870,10 @@ footer span{
     .sertifikater-grid{
         grid-template-columns: 1fr;
     }
+   
 }
 
-
+ 
 
 
 
