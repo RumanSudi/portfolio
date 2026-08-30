@@ -774,6 +774,73 @@ nav ul a.aktiv {
     margin-top: 2px;
 }
 
+/*----- 
+Kontaktskjema
+---------*/
+.Kontakt-skjema{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.skjema-gruppe{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.skjema-gruppe label{
+    font-family: var(--mono);
+    font-size: 8px;
+    color: var(--svak);
+    letter-spacing: 0.08em;
+}
+.skjema-gruppe input,
+.skjema-gruppe textarea{
+    background: rgba(255, 255, 255,0.04);
+    border: 0.5px solid var(--kant);
+    border-radius: 6px;
+    color: var(--tekst);
+    font-family: var(--sans);
+    font-size: 14px; 
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.2s ;
+    width:100%;
+}
+
+.skjema-gruppe input::placeholder,
+.skjema-gruppe textarea::placeholder{
+    color: var(--svak);
+
+}
+.skjema-gruppe input:focus,
+.skjema-gruppe textarea:focus {
+    border-color: rgba(0, 212, 255, 0.4);
+}
+
+.skjema-gruppe textarea{
+    resize: vertical;
+    min-height: 110px;
+}
+
+#skjema-status {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--green);
+}
+.kontakt-skjema button{
+    margin-top: 16px; 
+    align-self: stretch;
+}
+
+
+
+
+
+
+
+
+
 /*--------------------------------------
  13. FOOTER
 -------------------------------------*/
