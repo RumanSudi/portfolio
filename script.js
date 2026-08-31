@@ -107,31 +107,6 @@ window.addEventListener('scroll', function() {
 
 //---- 4.KontaktSKJEMA---//
 
-const skjema = document.getElementById('kontakt-skjema'); 
-
-if (skjema){ 
-    skjema.addEventListener ('submit', function(e){
-        e.preventDefault(); //hindrer siden fra å refreshe
-
-        const knapp = skjema.querySelector('button'); 
-        const status = document.getElementById ('skjema-status');
-
-        //vis "sender.... på knappen"//
-
-        knapp.textContent = 'sender...'
-        knapp.disabled = true; 
-
-        // vis Etter 900ms- vis bekreftelse og reset skjema
-
-        setTimeout(function () {
-            status.hidden = false;
-            knapp.textContent ='Send melding'; 
-            knapp.disabled = false
-            skjema.reset (); 
-        }, 900);
-
-    }); 
-}
 
 
 // Scroll Reveal  Elementer fader inn når de kommer til syne//
