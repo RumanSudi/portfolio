@@ -868,6 +868,13 @@ footer span{
 
     nav{
         padding: 0 20px;
+
+    .kontakt-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+
     }
 
     nav ul{
