@@ -917,7 +917,7 @@ footer span{
 
     }
     .om-meg-grid, 
-    .kontakt-grid,{
+    .kontakt-grid{
         grid-template-columns: 1fr;
         gap: 40px;
     }
